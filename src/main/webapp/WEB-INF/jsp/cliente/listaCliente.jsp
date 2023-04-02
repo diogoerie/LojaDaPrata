@@ -53,7 +53,7 @@
                 <th>id</th>
                 <th>E-mail</th>
                 <th>Nome</th>
-                <th>CEP</th>
+                <th>RG</th>
                 <td><a href="/cadastroCliente">Novo</a></td>
             </tr>
             </thead>
@@ -64,7 +64,7 @@
                     <td>${u.id}</td>
                     <td>${u.email}</td>
                     <td>${u.nome}</td>
-                    <td>${u.cep}</td>
+                    <td>${u.rg}</td>
                     <td><a href="/cliente/${u.id}/apagarCliente">excluir</a></td>
                 </tr>
             </c:forEach>

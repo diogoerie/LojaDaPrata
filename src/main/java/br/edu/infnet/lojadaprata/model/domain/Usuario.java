@@ -1,12 +1,6 @@
 package br.edu.infnet.lojadaprata.model.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 @Entity
 @Table(name = "TUsuario")
@@ -18,8 +12,10 @@ public class Usuario {
 	private String senha;
 	private String email;
 	private int idade;
-	private int cep;
 	private Integer numero;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "idEndereco")
+	private Endereco endereco;
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
 	private List<Cliente> clientes;
@@ -47,7 +43,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return String.format(
-				"O usuario %s, cujo email %s e senha %s,do CEP %d tem $d anos.", nome, email, senha, cep, idade
+				"O usuario %s, cujo email %s e senha %s, tem $d anos.", nome, email, senha, idade
 		);
 	}
 
@@ -82,14 +78,6 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public int getCep() {
-		return cep;
-	}
-
-	public void setCep(int cep) {
-		this.cep = cep;
 	}
 
 	public Integer getId() {
@@ -131,7 +119,12 @@ public class Usuario {
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
-
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 }
 
 

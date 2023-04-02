@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,17 +40,17 @@
     </div>
 </header>
 <div id="login">
+
     <form action="/cadastro/novo" method="post" class="card-cadastro">
         <div class="card-header">
-            <h2>Cadastro</h2>
+            <h2>Pagina de Cadastro</h2>
         </div>
         <div class="card-content">
             <div class="card-content-area">
-                <label>Usuário</label>
+                <label>Nome</label>
                 <input type="text" name="nome" value="diogo">
             </div>
             <div class="card-content-area">
-
                 <div class="card-content-area">
                     <label>Senha</label>
                     <input type="password" name="senha" value="123456">
@@ -60,30 +59,26 @@
                 <input type="email" name="email" value="diogo@gmail.com">
             </div>
             <div class="card-content-area">
-                <label>CEP</label>
-                <input type="text" name="cep" value="12312312">
-            </div>
-            <div class="card-content-area">
                 <label>Idade</label>
                 <input type="text" name="idade" value="30">
             </div>
-        </div>
-
-        <div class="card-footer">
-            <button class="button-81" type="submit">Cadastrar</button>
+            <div class="card-footer">
+                <button class="button-81" type="submit">Cadastrar</button>
+            </div>
         </div>
     </form>
+    <form action="/cep" class="card-cadastro" method="post">
 
+        <c:import url="/WEB-INF/jsp/endereco/cadastro.jsp"/>
+        <button class="button-81" type="submit">Buscar CEP</button>
+        <br>
+        <br>
+    </form>
 </div>
-<footer>
-    <div class="main-footer">
-        <div class="footer">
-            <a href="/"><img src="logo.png" class="logofooter"></a>
-            <p class="copy-right">&copy; 2023 ECommerce. All Rights Reserved. <a href="/" target="_blank">lojadaprata</a>
-            </p>
-        </div>
-    </div>
-</footer>
+</body>
+</html>
+</div>
+
 </body>
 
 </html>

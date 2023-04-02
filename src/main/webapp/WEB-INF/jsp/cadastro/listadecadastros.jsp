@@ -54,7 +54,6 @@
                 <th>E-mail</th>
                 <th>Nome</th>
                 <th>Senha</th>
-                <th>CEP</th>
                 <th>Idade</th>
                 <th>Excluir</th>
                 <td><a href="/cadastrologado">Novo</a></td>
@@ -68,7 +67,6 @@
                     <td>${u.email}</td>
                     <td>${u.nome}</td>
                     <td>${u.senha}</td>
-                    <td>${u.cep}</td>
                     <td>${u.idade}</td>
                     <td><a href="/cadastro/${u.id}/apagar">excluir</a></td>
                 </tr>

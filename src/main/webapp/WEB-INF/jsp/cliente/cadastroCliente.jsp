@@ -41,9 +41,10 @@
     </div>
 </header>
 <div id="login">
+
     <form action="/cliente/novo" method="post" class="card-cadastro">
         <div class="card-header">
-            <h2>Cadastro cliente</h2>
+            <h2>Cadastrar Cliente</h2>
         </div>
         <div class="card-content">
             <div class="card-content-area">
@@ -55,15 +56,15 @@
                 <input type="email" name="email" value="diogo@gmail.com">
             </div>
             <div class="card-content-area">
-                <label>CEP</label>
-                <input type="text" name="cep" value="12312312">
+                <label>RG</label>
+                <input type="text" name="rg" value="3226215">
             </div>
         </div>
-
         <div class="card-footer">
             <button class="button-81" type="submit">Cadastrar</button>
         </div>
     </form>
+
 
 </div>
 <footer>

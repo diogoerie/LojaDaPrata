@@ -27,13 +27,11 @@ public class UsuarioLoader implements ApplicationRunner {
 
         Usuario vendedor = new Usuario("Diogo1 ", "diogo1@gmail.com", "diogo1@gmail.com");
         vendedor.setIdade(18);
-        vendedor.setCep(12515151);
         usuarioService.novo(vendedor);
         System.out.println("Usuário " + vendedor.getNome() + " incluido na lista.");
 
         Usuario adm = new Usuario("Diogo ", "diogo@gmail.com", "diogo@gmail.com");
         adm.setIdade(18);
-        adm.setCep(12515151);
         usuarioService.novo(adm);
         System.out.println("Usuário " + adm.getNome() + " incluido na lista.");
 
@@ -49,7 +47,6 @@ public class UsuarioLoader implements ApplicationRunner {
                 while(linha != null) {
                     campos = linha.split(";");
                     Usuario cadastro = new Usuario(campos[0], campos[1],(campos[2]));
-                    cadastro.setCep(Integer.valueOf(campos[3]));
                     cadastro.setIdade(Integer.valueOf(campos[4]));
                     usuarioService.novo(cadastro);
                     System.out.println("A inclusão do usuario "+cadastro.getNome()+" foi realizada com sucesso.");
