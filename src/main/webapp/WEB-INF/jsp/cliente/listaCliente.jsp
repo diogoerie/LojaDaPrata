@@ -22,6 +22,28 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/cadastro">Cadastrar</a></li>
+            </ul>
+        </c:if>
+=======
         <ul>
             <li><a href="/listaAnel">Aneis</a></li>
             <li><a href="/listaColar">Colares</a></li>
@@ -32,28 +54,64 @@
             <c:if test="${empty fn:trim(cadastro)}">
                 <li><a href="/login">Login</a></li>
                 <li><a href="/cadastro">Cadastrar</a></li>
+=======
+        <ul>
+            <li><a href="/listaAnel">Aneis</a></li>
+            <li><a href="/listaColar">Colares</a></li>
+            <li><a href="/listaPulseira">Pulseiras</a></li>
+            <li><a href="/listaCliente">Clientes</a></li>
+            <li><a href="/listaProduto">Produtos</a></li>
+            </c:if>
+            <c:if test="${empty fn:trim(cadastro)}">
+                <li><a href="/login">Login</a></li>
+                <li><a href="/cadastro">Cadastrar</a></li>
+>>>>>>> parent of dd246f7 (commit)
             </c:if>
             <c:if test="${not empty cadastro}">
                 <li><a href="/listadecadastros">Lista</a></li>
                 <li><a href="/logout">Logout</a></li>
             </c:if>
         </ul>
+<<<<<<< HEAD
+>>>>>>> parent of dd246f7 (commit)
+=======
+>>>>>>> parent of dd246f7 (commit)
     </div>
 </header>
 <div class="maincontent-area">
     <h2 class="section-title">Lista de clientes </h2>
     <div class="container12">
         <c:if test="${empty clientes}">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <h3>No momento não há nem um cliente cadastrado por você.</h3>
+        </c:if>
+            <h3>Número de clientes cadastrados por você: ${clientes.size()}.</h3>
+=======
             <h3>No momento não há nem um cliente cadastrado.</h3>
         </c:if>
             <h3>Número de clientes cadastrados: ${clientes.size()}.</h3>
+>>>>>>> parent of dd246f7 (commit)
+=======
+            <h3>No momento não há nem um cliente cadastrado.</h3>
+        </c:if>
+            <h3>Número de clientes cadastrados: ${clientes.size()}.</h3>
+>>>>>>> parent of dd246f7 (commit)
         <table>
             <thead>
             <tr>
                 <th>id</th>
                 <th>E-mail</th>
                 <th>Nome</th>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                <th>RG</th>
+=======
                 <th>CEP</th>
+>>>>>>> parent of dd246f7 (commit)
+=======
+                <th>CEP</th>
+>>>>>>> parent of dd246f7 (commit)
                 <td><a href="/cadastroCliente">Novo</a></td>
             </tr>
             </thead>
@@ -64,7 +122,15 @@
                     <td>${u.id}</td>
                     <td>${u.email}</td>
                     <td>${u.nome}</td>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <td>${u.rg}</td>
+=======
                     <td>${u.cep}</td>
+>>>>>>> parent of dd246f7 (commit)
+=======
+                    <td>${u.cep}</td>
+>>>>>>> parent of dd246f7 (commit)
                     <td><a href="/cliente/${u.id}/apagarCliente">excluir</a></td>
                 </tr>
             </c:forEach>

@@ -22,6 +22,50 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+=======
+        <ul>
+            <li><a href="/listaAnel">Aneis</a></li>
+            <li><a href="/listaColar">Colares</a></li>
+            <li><a href="/listaPulseira">Pulseiras</a></li>
+            <li><a href="/listaCliente">Clientes</a></li>
+            <li><a href="/listaProduto">Produtos</a></li>
+            </c:if>
+            <c:if test="${empty fn:trim(cadastro)}">
+>>>>>>> parent of dd246f7 (commit)
+                <li><a href="/login">Login</a></li>
+                <li><a href="/cadastro">Cadastrar</a></li>
+            </c:if>
+            <c:if test="${not empty cadastro}">
+                <li><a href="/listadecadastros">Lista</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </c:if>
+        </ul>
+    </div>
+</header>
+<div id="login">
+<<<<<<< HEAD
+
+    <form action="/cliente/novo" method="post" class="card-cadastro">
+        <div class="card-header">
+            <h2>Cadastrar Cliente</h2>
+=======
         <ul>
             <li><a href="/listaAnel">Aneis</a></li>
             <li><a href="/listaColar">Colares</a></li>
@@ -44,6 +88,12 @@
     <form action="/cliente/novo" method="post" class="card-cadastro">
         <div class="card-header">
             <h2>Cadastro cliente</h2>
+>>>>>>> parent of dd246f7 (commit)
+=======
+    <form action="/cliente/novo" method="post" class="card-cadastro">
+        <div class="card-header">
+            <h2>Cadastro cliente</h2>
+>>>>>>> parent of dd246f7 (commit)
         </div>
         <div class="card-content">
             <div class="card-content-area">
@@ -55,15 +105,36 @@
                 <input type="email" name="email" value="diogo@gmail.com">
             </div>
             <div class="card-content-area">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                <label>RG</label>
+                <input type="text" name="rg" value="3226215">
+            </div>
+        </div>
+=======
+=======
+>>>>>>> parent of dd246f7 (commit)
                 <label>CEP</label>
                 <input type="text" name="cep" value="12312312">
             </div>
         </div>
 
+>>>>>>> parent of dd246f7 (commit)
         <div class="card-footer">
             <button class="button-81" type="submit">Cadastrar</button>
         </div>
     </form>
+<<<<<<< HEAD
+    <form action="/cep1" class="card-cadastro" method="post">
+
+        <c:import url="/WEB-INF/jsp/endereco/cadastro.jsp"/>
+        <button class="button-81" type="submit">Buscar CEP</button>
+        <br>
+        <br>
+    </form>
+
+=======
+>>>>>>> parent of dd246f7 (commit)
 
 </div>
 <footer>
