@@ -32,7 +32,7 @@ public class LoginController {
 		user = usuarioService.autenticar(user);
 		if (user != null) {
 			model.addAttribute("cadastro", user);
-			return "redirect:/listadecadastros";
+			return "redirect:/";
 		} else {
 			return telaLogin();
 		}
