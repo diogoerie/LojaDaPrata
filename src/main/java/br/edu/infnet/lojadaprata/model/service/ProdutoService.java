@@ -17,7 +17,7 @@ public class ProdutoService {
 	public void apagar(Integer id) {
 		produtoRepository.deleteById(id);
 	}
-	public Collection<Produto> listagem(){
+	public Collection<Produto> listagem() {
 		return (Collection<Produto>) produtoRepository.findAll();
 	}
 	public Collection<Produto> listagem(Usuario cadastro){
