@@ -107,26 +107,26 @@ public class PedidoTest {
         Pedido pedido01 = new Pedido();      
         pedido01.setCarrinho("anel,anel,colar");
         pedido01.setCodigoProduto("322");
-        pedido01.mostrar();
+
         
         Pedido pedido02 = new Pedido();
         pedido02.setCarrinho("colar");
         pedido02.setCodigoProduto("555");
-        pedido02.mostrar();
+
         
         Pedido pedido03 = new Pedido();
         pedido03.setCarrinho("colar,anel");
         pedido03.setCodigoProduto("800");
-        pedido03.mostrar();
+
         
         Pedido pedido04 = new Pedido();
         pedido04.setCarrinho("colar,anel");
         pedido04.setCodigoProduto("800");
-        pedido04.mostrar();
+
         
         Pedido pedido05 = new Pedido();
         pedido05.setCarrinho("colar,anel");
         pedido05.setCodigoProduto("800");
-        pedido05.mostrar();
+
     }
 }
