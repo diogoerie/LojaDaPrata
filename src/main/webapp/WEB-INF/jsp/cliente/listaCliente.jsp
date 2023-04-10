@@ -22,31 +22,34 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
-        <ul>
-            <li><a href="/listaAnel">Aneis</a></li>
-            <li><a href="/listaColar">Colares</a></li>
-            <li><a href="/listaPulseira">Pulseiras</a></li>
-            <li><a href="/listaCliente">Clientes</a></li>
-            <li><a href="/listaProduto">Produtos</a></li>
-            </c:if>
-            <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/cadastro">Cadastrar</a></li>
-            </c:if>
-            <c:if test="${not empty cadastro}">
-                <li><a href="/listadecadastros">Lista</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </c:if>
-        </ul>
+            </ul>
+        </c:if>
     </div>
 </header>
 <div class="maincontent-area">
     <h2 class="section-title">Lista de clientes </h2>
     <div class="container12">
         <c:if test="${empty clientes}">
-            <h3>No momento não há nem um cliente cadastrado.</h3>
+            <h3>No momento nÃ£o hÃ¡ nem um cliente cadastrado por vocÃª.</h3>
         </c:if>
-            <h3>Número de clientes cadastrados: ${clientes.size()}.</h3>
+            <h3>NÃºmero de clientes cadastrados por vocÃª: ${clientes.size()}.</h3>
         <table>
             <thead>
             <tr>
