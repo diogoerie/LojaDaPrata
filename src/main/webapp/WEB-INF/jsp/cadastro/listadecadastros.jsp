@@ -22,31 +22,34 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
-        <ul>
-            <li><a href="/listaAnel">Aneis</a></li>
-            <li><a href="/listaColar">Colares</a></li>
-            <li><a href="/listaPulseira">Pulseiras</a></li>
-            <li><a href="/listaCliente">Clientes</a></li>
-            <li><a href="/listaProduto">Produtos</a></li>
-            </c:if>
-            <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/cadastro">Cadastrar</a></li>
-            </c:if>
-            <c:if test="${not empty cadastro}">
-                <li><a href="/listadecadastros">Lista</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </c:if>
-        </ul>
+            </ul>
+        </c:if>
     </div>
 </header>
 <div class="maincontent-area">
     <h2 class="section-title">Lista de Cadastrados</h2>
     <div class="container12">
         <c:if test="${empty cadastros}">
-            <h3>No momento n„o h· nem um usu·rio cadastrado.</h3>
+            <h3>No momento n√£o h√° nem um usu√°rio cadastrado.</h3>
         </c:if>
-            <h3>N˙mero de usu·rios cadastrados: ${cadastros.size()}.</h3>
+            <h3>N√∫mero de usu√°rios cadastrados: ${cadastros.size()}.</h3>
         <table>
             <thead>
             <tr>
@@ -68,7 +71,12 @@
                     <td>${u.nome}</td>
                     <td>${u.senha}</td>
                     <td>${u.idade}</td>
-                    <td><a href="/cadastro/${u.id}/apagar">excluir</a></td>
+                    <c:if test="${not empty cadastro and cadastro.administrador and u.id != cadastro.id}">
+                        <td><a href="/cadastro/${u.id}/apagar">excluir</a></td>
+                    </c:if>
+                    <c:if test="${not empty cadastro and not cadastro.administrador}">
+                        <td><a href="/cadastro/${u.id}/apagar">excluir</a></td>
+                    </c:if>
                 </tr>
             </c:forEach>
             </tbody>
