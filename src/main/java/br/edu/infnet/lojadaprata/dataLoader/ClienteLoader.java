@@ -51,10 +51,4 @@ public class ClienteLoader implements ApplicationRunner {
             System.out.println("A inclusão foi um sucesso.");
         }
     }
-
-   /* private void incluir(Cliente cliente) {
-
-        clienteService.incluir(cliente);
-    }*/
-
 }
