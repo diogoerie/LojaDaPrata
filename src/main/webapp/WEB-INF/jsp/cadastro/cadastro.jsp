@@ -21,22 +21,25 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
-        <ul>
-            <li><a href="/listaAnel">Aneis</a></li>
-            <li><a href="/listaColar">Colares</a></li>
-            <li><a href="/listaPulseira">Pulseiras</a></li>
-            <li><a href="/listaCliente">Clientes</a></li>
-            <li><a href="/listaProduto">Produtos</a></li>
-            </c:if>
-            <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/cadastro">Cadastrar</a></li>
-            </c:if>
-            <c:if test="${not empty cadastro}">
-                <li><a href="/listadecadastros">Lista</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </c:if>
-        </ul>
+            </ul>
+        </c:if>
     </div>
 </header>
 <div id="login">
