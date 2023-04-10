@@ -22,7 +22,8 @@ public class LoginController {
 	private UsuarioService usuarioService;
 
 	@GetMapping("/login")
-	public String telaLogin() {
+	public String telaLogin(Model model) {
+		model.addAttribute("erro", null);
 		return "login";
 	}
 
@@ -34,9 +35,12 @@ public class LoginController {
 			model.addAttribute("cadastro", user);
 			return "redirect:/";
 		} else {
-			return telaLogin();
+			model.addAttribute("erro", "E-mail e/ou senha incorretos");
+			return telaLogin(model);
 		}
 	}
+
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session, SessionStatus status) {
 		status.setComplete();
