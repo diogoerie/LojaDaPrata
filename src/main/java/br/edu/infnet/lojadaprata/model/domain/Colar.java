@@ -18,15 +18,11 @@ public class Colar extends Produto {
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario cadastro;
-	public Colar(){
-
-	}
-
+	public Colar(){	}
 	public Colar(String nomeProduto, String codigoProduto, String preco,String quantidade)throws QuantidadeInvalidaExcecao{
 		super(nomeProduto, codigoProduto, preco,quantidade);
 
 	}
-
 	@Override
 	public float calcularPreco() throws PesoInvalidoExcecao{
 		float val = Float.parseFloat(getPreco());
