@@ -22,22 +22,25 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
-        <ul>
-            <li><a href="/listaAnel">Aneis</a></li>
-            <li><a href="/listaColar">Colares</a></li>
-            <li><a href="/listaPulseira">Pulseiras</a></li>
-            <li><a href="/listaCliente">Clientes</a></li>
-            <li><a href="/listaProduto">Produtos</a></li>
-            </c:if>
-            <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/cadastro">Cadastrar</a></li>
-            </c:if>
-            <c:if test="${not empty cadastro}">
-                <li><a href="/listadecadastros">Lista</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </c:if>
-        </ul>
+            </ul>
+        </c:if>
     </div>
 </header>
 <div id="login">
@@ -47,12 +50,16 @@
         </div>
         <div class="card-content">
             <div class="card-content-area">
+                <div class="card-content-area">
+                    <label>Nome Produto</label>
+                    <input type="text" name="nomeProduto" value="Pulseira banhada">
+                </div>
                 <label>Modelo</label>
                 <input type="text" name="modelo" value="Pulseira banhada">
             </div>
             <div class="card-content-area">
                 <div class="card-content-area">
-                    <label>Male·vel</label>
+                    <label>Male√°vel</label>
                     <input type="text" name="maleavel" value="true">
                 </div>
                 <label>Prendedor</label>
@@ -62,10 +69,7 @@
                 <label>Tamanho</label>
                 <input type="text" name="tamanho" value="15">
             </div>
-            <div class="card-content-area">
-                <label>Nome Produto</label>
-                <input type="text" name="nomeProduto" value="Pulseira banhada">
-            </div>
+
             <div class="card-content-area">
                 <label>Codigo Produto</label>
                 <input type="text" name="codigoProduto" value="10">
@@ -75,7 +79,7 @@
                 <input type="text" name="quantidade" value="1">
             </div>
             <div class="card-content-area">
-                <label>PreÁo</label>
+                <label>Pre√ßo</label>
                 <input type="text" name="preco" value="35">
             </div>
         </div>
