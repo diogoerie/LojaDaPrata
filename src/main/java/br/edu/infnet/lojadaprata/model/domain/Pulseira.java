@@ -20,9 +20,7 @@ public class Pulseira extends Produto {
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario cadastro;
-	public Pulseira(){
-
-	}
+	public Pulseira(){}
 	public Pulseira(String nomeProduto, String codigoProduto, String preco,String quantidade)throws QuantidadeInvalidaExcecao {
 		super(nomeProduto, codigoProduto, preco,quantidade);
 	}
