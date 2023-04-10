@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,31 +20,42 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
-        <ul>
-            <li><a href="/listaAnel">Aneis</a></li>
-            <li><a href="/listaColar">Colares</a></li>
-            <li><a href="/listaPulseira">Pulseiras</a></li>
-            <li><a href="/listaCliente">Clientes</a></li>
-            <li><a href="/listaProduto">Produtos</a></li>
-            </c:if>
-            <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/cadastro">Cadastrar</a></li>
-            </c:if>
-            <c:if test="${not empty cadastro}">
-                <li><a href="/listadecadastros">Lista</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </c:if>
-        </ul>
+            </ul>
+        </c:if>
     </div>
 </header>
 <div class="maincontent-area">
     <h2 class="section-title">Lista de colares</h2>
     <div class="container12">
         <c:if test="${empty colars}">
-            <h3>No momento não há nem um colar cadastrado.</h3>
+            <h3>No momento nÃ£o hÃ¡ nem um colar cadastrado.</h3>
         </c:if>
-            <h3>Número de colares cadastrados: ${colars.size()}.</h3>
+        <h3>NÃºmero de colares cadastrados: ${colars.size()}.</h3>
+        <div th:if="${mensagemErro}" class="alert alert-danger" role="alert">
+            <p th:text="${mensagemErro}"></p>
+        </div>
+        <th:block th:if="${mensagem}">
+            <div class="alert alert-success" role="alert">
+                <p th:text="${mensagem}"></p>
+            </div>
+        </th:block>
         <table>
             <thead>
             <tr>
