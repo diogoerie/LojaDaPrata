@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collection;
 
+
 @Service
 public class UsuarioService {
 
@@ -25,4 +26,9 @@ public class UsuarioService {
 	public Collection<Usuario> listagem(){
 		return (Collection<Usuario>) usuarioRepository.findAll();
 	}
+	public Usuario buscarPorId(Integer id) {
+		return usuarioRepository.findById(id).orElse(null);
+	}
+
+
 }
