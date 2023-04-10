@@ -12,6 +12,7 @@ public class Usuario {
 	private String senha;
 	private String email;
 	private int idade;
+	private boolean administrador = false;
 	private Integer numero;
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "idEndereco")
@@ -124,6 +125,14 @@ public class Usuario {
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
 	}
 }
 
