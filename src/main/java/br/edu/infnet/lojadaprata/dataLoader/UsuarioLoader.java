@@ -31,7 +31,9 @@ public class UsuarioLoader implements ApplicationRunner {
         System.out.println("Usuário " + vendedor.getNome() + " incluido na lista.");
 
         Usuario adm = new Usuario("Diogo ", "diogo@gmail.com", "diogo@gmail.com");
+        adm.setId(1);
         adm.setIdade(18);
+        adm.setAdministrador(true);
         usuarioService.novo(adm);
         System.out.println("Usuário " + adm.getNome() + " incluido na lista.");
 
