@@ -22,65 +22,76 @@
     </div>
     <div class="menu">
         <c:if test="${not empty cadastro}">
-        <ul>
-            <li><a href="/listaAnel">Aneis</a></li>
-            <li><a href="/listaColar">Colares</a></li>
-            <li><a href="/listaPulseira">Pulseiras</a></li>
-            <li><a href="/listaCliente">Clientes</a></li>
-            <li><a href="/listaProduto">Produtos</a></li>
-            </c:if>
-            <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
+                <li><a href="/listaAnel">Aneis</a></li>
+                <li><a href="/listaColar">Colares</a></li>
+                <li><a href="/listaPulseira">Pulseiras</a></li>
+                <li><a href="/listaCliente">Clientes</a></li>
+                <li><a href="/listaPedido">Pedidos</a></li>
+                <li><a href="/listaProduto">Produtos</a></li>
+                <c:if test="${cadastro.administrador}">
+                    <li><a href="/listadecadastros">Lista</a></li>
+                </c:if>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </c:if>
+        <c:if test="${empty fn:trim(cadastro)}">
+            <ul>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/cadastro">Cadastrar</a></li>
-            </c:if>
-            <c:if test="${not empty cadastro}">
-                <li><a href="/listadecadastros">Lista</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </c:if>
-        </ul>
+            </ul>
+        </c:if>
     </div>
 </header>
 <div class="maincontent-area">
     <h2 class="section-title">Lista de aneis</h2>
     <div class="container12">
         <c:if test="${empty aneis}">
-            <h3>No momento n�o h� nem um anel cadastrado.</h3>
+            <h3>No momento não há nem um anel cadastrado.</h3>
         </c:if>
-            <h3>N�mero de aneis cadastrados: ${aneis.size()}.</h3>
+            <h3>Número de aneis cadastrados: ${aneis.size()}.</h3>
+        <div th:if="${mensagemErro}" class="alert alert-danger" role="alert">
+            <p th:text="${mensagemErro}"></p>
+        </div>
+        <th:block th:if="${mensagem}">
+            <div class="alert alert-success" role="alert">
+                <p th:text="${mensagem}"></p>
+            </div>
+        </th:block>
         <table>
             <thead>
             <tr>
                 <th>Id</th>
+                <th>Nome do Produto</th>
                 <th>Modelo</th>
                 <th>Sob-Encomenda</th>
-                <th>Diametro</th>
+                <th>Diâmetro</th>
                 <th>Cravejado</th>
-                <th>NomeProduto</th>
-                <th>Codigo do Produto</th>
+                <th>Código do Produto</th>
                 <th>Quantidade</th>
-                <th>Preco</th>
+                <th>Preço</th>
                 <td><a href="/cadastroAnel">Novo</a></td>
             </tr>
             </thead>
             <tbody>
             <c:if test="${not empty aneis}">
-            <c:forEach var="u" items="${aneis}">
-                <tr>
-                    <td>${u.id}</td>
-                    <td>${u.nomeProduto}</td>
-                    <td>${u.modelo}</td>
-                    <td>${u.sobEncomenda}</td>
-                    <td>${u.diametro}</td>
-                    <td>${u.cravejado}</td>
-                    <td>${u.codigoProduto}</td>
-                    <td>${u.quantidade}</td>
-                    <td>${u.preco}</td>
-                    <td><a href="/anel/${u.id}/apagar">excluir</a></td>
-                </tr>
-            </c:forEach>
+                <c:forEach var="u" items="${aneis}">
+                    <tr>
+                        <td>${u.id}</td>
+                        <td>${u.nomeProduto}</td>
+                        <td>${u.modelo}</td>
+                        <td>${u.sobEncomenda}</td>
+                        <td>${u.diametro}</td>
+                        <td>${u.cravejado}</td>
+                        <td>${u.codigoProduto}</td>
+                        <td>${u.quantidade}</td>
+                        <td>${u.preco}</td>
+                        <td><a href="/anel/${u.id}/apagar">excluir</a></td>
+                    </tr>
+                </c:forEach>
+            </c:if>
             </tbody>
         </table>
-        </c:if>
     </div>
 </div>
 </body>
