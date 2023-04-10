@@ -1,5 +1,6 @@
 package br.edu.infnet.lojadaprata.controller;
 
+import br.edu.infnet.lojadaprata.model.domain.Produto;
 import br.edu.infnet.lojadaprata.model.domain.Usuario;
 import br.edu.infnet.lojadaprata.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,10 @@ public class UsuarioController {
 	public String telaCadastroLogado() {
 		return "cadastro/cadastrologado";
 	}
+
 	@GetMapping(value = "/cadastro/{id}/apagar")
 	public String apagarCadastro(@PathVariable Integer id) {
+		Usuario cadastro = usuarioService.buscarPorId(id);
 		usuarioService.apagar(id);
 		return "redirect:/listadecadastros";
 	}
