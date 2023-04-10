@@ -1,5 +1,6 @@
 package br.edu.infnet.lojadaprata.model.domain;
 
+import com.sun.istack.NotNull;
 import excecoes.DiametroInvalidoExcecao;
 import excecoes.PesoInvalidoExcecao;
 import excecoes.QuantidadeInvalidaExcecao;
@@ -26,9 +27,13 @@ public abstract class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotNull
 	private String nomeProduto;
+	@NotNull
 	private String preco;
+	@NotNull
 	private String codigoProduto;
+	@NotNull
 	private String quantidade;
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
@@ -46,7 +51,6 @@ public abstract class Produto {
 		float valorQ = Float.parseFloat(quantidade);
 		if(valorQ <= 0 ){
 			throw new QuantidadeInvalidaExcecao("A quantidade de produtos não pode ser menor ou igual a zero.");
-
 		}
 	}
 	public abstract float calcularPreco() throws PesoInvalidoExcecao,DiametroInvalidoExcecao,TamanhoInvalidoExcecao;
