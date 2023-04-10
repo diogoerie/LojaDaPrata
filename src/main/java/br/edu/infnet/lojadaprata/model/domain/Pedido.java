@@ -27,6 +27,7 @@ public class Pedido {
 	private Integer id;
 	private String carrinho;
 	private String codigoProduto;
+	@Column(name = "data_criacao")
 	private LocalDateTime data;
 	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "idCLiente")
@@ -36,70 +37,40 @@ public class Pedido {
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario cadastro;
-	DateFormat dataFormato = DateFormat.getDateInstance();
-	Calendar cals = Calendar.getInstance();
-	String dataAtual = dataFormato.format(cals.getTime());
 
-
-	public Pedido(){
-
+	public Pedido() {
 	}
 
 	public Pedido(Cliente cliente, List<Produto> produtos) throws ClienteInvalidoExcecao, QuantidadeInvalidaExcecao {
-		this();
-		if(cliente == null) {
+		if (cliente == null) {
 			throw new ClienteInvalidoExcecao("Não existe nenhum cliente associado ao pedido!");
 		}
 
-		if(produtos == null) {
+		if (produtos == null) {
 			throw new QuantidadeInvalidaExcecao("Não existe nenhum produto associado ao pedido!");
 		}
+
 		this.cliente = cliente;
 		this.produtos = produtos;
-		data = LocalDateTime.now();
-	}
-	public String mostrar() {
-		String mostrar = "";
-		for(Produto produto :produtos){ mostrar += produto;}
-		return this+"\n Produtos \n"+ mostrar;
-	}
-
-	public String obterLinha() {
-		return this.getCarrinho() +";"+ this.getCliente() +";"+ this.getProdutos().size() +"\r\n";}
-
-    /*public Pedido() {
-        data = LocalDateTime.now();
-    }*/
-
-	public LocalDateTime getData() {
-		return data;
+		this.data = LocalDateTime.now();
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%s;%s;%s", carrinho, codigoProduto, dataAtual);}
-
-	public String getCarrinho() {
-		return carrinho;}
-	public void setCarrinho(String carrinho) {
-		this.carrinho = carrinho;}
-	public String getCodigoProduto() {
-		return codigoProduto;}
-	public void setCodigoProduto(String codigoProduto) {
-		this.codigoProduto = codigoProduto;}
-	public void setCliente(Cliente cliente){
-		this.cliente = cliente;}
-	public List<Produto> getProdutos() {
-		return produtos;}
-	public Cliente getCliente() {
-		return cliente;}
-
-	public void setData(LocalDateTime data) {
-		this.data = data;
+		StringBuilder sb = new StringBuilder();
+		sb.append("Carrinho: ").append(carrinho).append("\n");
+		sb.append("Código do Produto: ").append(codigoProduto).append("\n");
+		sb.append("Data do Pedido: ").append(data).append("\n");
+		sb.append("Cliente: ").append(cliente).append("\n");
+		sb.append("Produtos:\n");
+		for (Produto produto : produtos) {
+			sb.append(produto).append("\n");
+		}
+		return sb.toString();
 	}
 
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public String obterLinha() {
+		return this.getCarrinho() + ";" + this.getCliente() + ";" + this.getProdutos().size() + "\r\n";
 	}
 
 	public Integer getId() {
@@ -110,20 +81,44 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public DateFormat getDataFormato() {
-		return dataFormato;
+	public String getCarrinho() {
+		return carrinho;
 	}
 
-	public void setDataFormato(DateFormat dataFormato) {
-		this.dataFormato = dataFormato;
+	public void setCarrinho(String carrinho) {
+		this.carrinho = carrinho;
 	}
 
-	public String getDataAtual() {
-		return dataAtual;
+	public String getCodigoProduto() {
+		return codigoProduto;
 	}
 
-	public void setDataAtual(String dataAtual) {
-		this.dataAtual = dataAtual;
+	public void setCodigoProduto(String codigoProduto) {
+		this.codigoProduto = codigoProduto;
+	}
+
+	public LocalDateTime getData() {
+		return data;
+	}
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	public Usuario getCadastro() {
