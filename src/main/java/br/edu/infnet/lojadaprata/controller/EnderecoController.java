@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class EnderecoController {
 
@@ -14,8 +16,14 @@ public class EnderecoController {
     private EnderecoService enderecoService;
 
     @PostMapping("/cep")
-    public String telaCadastroColar(Model model, @RequestParam String cep) {
+    public String telaCep(Model model, @RequestParam String cep) {
         model.addAttribute("endereco", enderecoService.cepOnline(cep));
         return "cadastro/cadastro";
     }
+    @PostMapping("/cep1")
+    public String telaCep1(Model model, @RequestParam String cep) {
+        model.addAttribute("endereco", enderecoService.cepOnline(cep));
+        return "cliente/cadastroCliente";
+    }
+
 }
